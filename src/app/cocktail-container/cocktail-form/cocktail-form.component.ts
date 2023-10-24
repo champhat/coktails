@@ -41,8 +41,6 @@ export class CocktailFormComponent implements OnInit {
     });
   }
 
-  //dans le cas d'un cocktail nul on doit définir une valeur par défaut du parametre cocktail
-  // ce qui chargera un formulaire vide (ça evite de faire plein de if)
   private initForm(
     cocktail: Cocktail = { name: '', description: '', img: '', ingredients: [] }
   ): void {
@@ -50,7 +48,6 @@ export class CocktailFormComponent implements OnInit {
       name: [cocktail.name, Validators.required],
       img: [cocktail.img, Validators.required],
       description: [cocktail.description, Validators.required],
-      //on doit transformer l'array d'ingredient en forme groupe avec map
       ingredients: this.fb.array(
         cocktail.ingredients.map((ingredient) =>
           this.fb.group({
@@ -63,7 +60,6 @@ export class CocktailFormComponent implements OnInit {
     });
   }
 
-  // push un form group dans le formArray
   public addIngredient(): void {
     this.ingredients.push(
       this.fb.group({
@@ -75,14 +71,12 @@ export class CocktailFormComponent implements OnInit {
 
   public submit(): void {
     if (this.cocktail) {
-      // si le cocktail existe on l'édite ça evite d'avoir des cocktail en doublons
       this.cocktailService
         .editCocktail(this.cocktail._id!, this.cocktailForm.value)
         .subscribe();
     } else {
       this.cocktailService.addCocktail(this.cocktailForm.value).subscribe();
     }
-    //on retourne un cran en arrière, la navigation doit  être relative
     this.router.navigate(['..'], { relativeTo: this.activatedRoute });
   }
 }
