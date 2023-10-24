@@ -1,0 +1,196 @@
+/* You can add global styles to this file, and also import other style files */
+/* box-sizing: border-box; répartir comme il faut en largeur à utiliser */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+//équivalent de html déclaration de variable --font-family
+:root {
+  --font-family: "roboto", sans-serif;
+  --primary: #d454e5;
+  --secondary: #eb77eb;
+  --accent: #e5546d;
+  --lightgray: #ddd;
+  --text-regular: #444;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: var(--text-regular);
+}
+
+ul {
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 8px 15px;
+}
+
+hr {
+  margin: 20px 0px;
+  border-bottom: 1px solid #ddd;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+//layout déclaration de classe flex
+.container {
+  max-width: 1200px;
+  display: block;
+  margin: auto;
+  padding: 20px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-justify-content-center {
+  justify-content: center;
+}
+
+.flex-justify-content-between {
+  justify-content: space-between;
+}
+
+.flex-align-items-center {
+  align-items: center;
+}
+
+.flex-align-items-between {
+  align-items: space-between;
+}
+
+.flex-fill {
+  flex: 1 1 auto;
+}
+
+.flex-50 {
+  flex: 1 1 50%;
+}
+//utils
+.p-10 {
+  padding: 10px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+.pr-10 {
+  padding-right: 10px;
+}
+.pl-10 {
+  scroll-padding-left: 10px;
+}
+.m-10 {
+  margin: 10px;
+}
+
+.m-20 {
+  margin: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.w-100 {
+  width: 100%;
+}
+//theme
+//& selection de l'élément li
+
+.list-primary-action {
+  li {
+    &:hover {
+      background-color: var(--primary);
+      color: white;
+      cursor: pointer;
+    }
+    transition: background-color 0.4s;
+  }
+}
+
+.list-primary {
+  li {
+    list-style: none;
+    padding: 10px 15px;
+    border: 1px solid var(--lightgray);
+    border-top: 0px;
+  }
+  li:first-child {
+    border-top: 1px solid var(--lightgray);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  li:last-child {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+}
+
+//&-primary = .btn-primary
+.btn {
+  padding: 10px 15px;
+  background-color: white;
+  border: 0;
+  border-radius: 3px;
+  font-weight: 700;
+  cursor: pointer;
+  &-secondary {
+    background-color: #ddd;
+  }
+  &-primary {
+    background-color: var(--primary);
+    color: white;
+    &:hover {
+      background-color: var(--secondary);
+    }
+    transition: background-color 0.4s;
+  }
+}
+
+.badge {
+  background-color: var(--secondary);
+  border-radius: 3px;
+  padding: 2px 5px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.active {
+  background-color: violet;
+  color: white;
+}
+//debug
+.d1 {
+  border: 1px solid red;
+}
+.d2 {
+  border: 1px solid green;
+}

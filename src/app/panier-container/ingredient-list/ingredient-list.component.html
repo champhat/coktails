@@ -1,0 +1,6 @@
+<ul class="list-primary">
+  <li *ngFor="let ingredient of ingredients" class="d-flex flex-row">
+    <span class="flex-fill">{{ ingredient.name }}</span>
+    <span class="badge">{{ ingredient.quantity }}</span>
+  </li>
+</ul>
